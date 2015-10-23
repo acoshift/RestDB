@@ -1,0 +1,23 @@
+$migrate('test', function ($table) {
+    $table->increments('id');
+    $table->string('name');
+    $table->timestamps();
+});
+
+$db('test')->delete();
+$db('test')->insert(array('name' => 'John', 'created_at' => $now(), 'updated_at' => $now()));
+$db('test')->insert(array('name' => 'Peter', 'created_at' => $now(), 'updated_at' => $now()));
+$db('test')->insert(array('name' => 'Pod', 'created_at' => $now(), 'updated_at' => $now()));
+$db('test')->insert(array('name' => 'God', 'created_at' => $now(), 'updated_at' => $now()));
+$db('test')->insert(array('name' => 'Ayumi', 'created_at' => $now(), 'updated_at' => $now()));
+$db('test')->insert(array('name' => 'Miho', 'created_at' => $now(), 'updated_at' => $now()));
+$db('test')->insert(array('name' => 'Mamura', 'created_at' => $now(), 'updated_at' => $now()));
+$db('test')->insert(array('name' => 'Saya', 'created_at' => $now(), 'updated_at' => $now()));
+$db('test')->insert(array('name' => 'Mikoto', 'created_at' => $now(), 'updated_at' => $now()));
+$db('test')->insert(array('name' => 'Hiro', 'created_at' => $now(), 'updated_at' => $now()));
+$db('test')->insert(array('name' => 'Shiro', 'created_at' => $now(), 'updated_at' => $now()));
+
+$res = $db('test')->where('id', '=', 4)->fist();
+echo response()->json($res);
+
+$drop('test');
